@@ -14,7 +14,6 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
 }
@@ -29,8 +28,11 @@ body > * {
   flex: 1 0 auto;
 }
 
-form {
+nav {
   background-color: #ffffff;
+}
+
+form {
   display: flex;
   justify-content: space-around;
   gap: 1rem;
@@ -40,11 +42,6 @@ form {
 main {
   width: 100%;
   display: flex;
-}
-
-select {
-  font-family: "Inter", sans-serif;
-  border: none;
 }
 
 button,
@@ -87,7 +84,7 @@ select {
 
 #color-picker {
   display: block;
-  border: none;
+  border: 3px solid #9CA3AF;
   padding: 0;
 }
 
