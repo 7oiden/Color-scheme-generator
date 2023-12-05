@@ -56,11 +56,6 @@ select {
   font-family: "Inter", sans-serif;
 }
 
-.color-picker-container {
-  background-color: #d1d5db;
-  padding: 4px;
-}
-
 #color-container,
 #value-container {
   width: 100%;
@@ -74,7 +69,7 @@ select {
 #value-container {
   flex-shrink: 0;
   background-color: #ffffff;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
 }
 
 .color-box,
@@ -93,7 +88,7 @@ select {
 
 #color-picker {
   display: block;
-  border: 1px solid #313131;
+  border: none;
 }
 
 .fa-copy {
