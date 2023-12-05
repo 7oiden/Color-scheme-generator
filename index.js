@@ -11,9 +11,8 @@ let hex = "ffffff";
 let mode = "monochrome";
 const count = 5;
 
-colorPicker.value = "#ffffff";
-colorDropdown.value = "monochrome";
-
+colorPicker.value = `#${hex}`;
+colorDropdown.value = mode;
 
 //generates url for fetch request
 let url = generateUrl();
@@ -23,12 +22,14 @@ function generateUrl() {
 }
 
 //copies color value to clipboard
-valueContainer.addEventListener("click", function (event) {
+valueContainer.addEventListener("click", handleCopyClick);
+
+function handleCopyClick(event) {
   if (event.target.classList.contains("fa-copy")) {
     const value = event.target.dataset.value;
     copyColor(value);
   }
-});
+}
 
 function copyColor(value) {
   navigator.clipboard.writeText(value).then(function () {
@@ -50,6 +51,21 @@ function getInputColors(event) {
   fetchColor();
 }
 
+//displays color scheme
+function displayColors(colors) {
+  colorContainer.innerHTML = "";
+  valueContainer.innerHTML = "";
+
+  colors.forEach((color) => {
+    colorContainer.innerHTML += `
+    <div class="color-box" style="background-color: ${color.hex.value}"></div>`;
+
+    valueContainer.innerHTML += `
+    <div class="value-box" "><div>${color.hex.value}</div>
+    <i class="far fa-copy" data-value="${color.hex.value}"></i></div>`;
+  });
+}
+
 //fetches color scheme from API
 async function fetchColor() {
   try {
@@ -65,17 +81,3 @@ async function fetchColor() {
 
 fetchColor();
 
-//displays color scheme
-function displayColors(colors) {
-  colorContainer.innerHTML = "";
-  valueContainer.innerHTML = "";
-
-  colors.forEach((color) => {
-    colorContainer.innerHTML += `
-    <div class="color-box" style="background-color: ${color.hex.value}"></div>`;
-
-    valueContainer.innerHTML += `
-    <div class="value-box" "><div>${color.hex.value}</div>
-    <i class="far fa-copy" data-value="${color.hex.value}"></i></div>`;
-  });
-}
