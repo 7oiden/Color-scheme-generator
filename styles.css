@@ -88,7 +88,7 @@ select {
 #color-picker {
   display: block;
   border: none;
-  padding: 4px;
+  padding: 0;
 }
 
 .fa-copy {
